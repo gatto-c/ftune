@@ -1,4 +1,4 @@
-hooks/
+hooks/**
 info/
 objects/
 refs/
