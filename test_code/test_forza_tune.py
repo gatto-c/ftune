@@ -179,8 +179,14 @@ def display_tune():
     pprint(CAR_INPUTS)
     pprint(MAIN_CALC, sort_dicts=False)
 
-def __set_var(calc_source, key, value, default):
+def __set_var(dest_dict, key, ftn, default):
+    try:
+        dest_dict[key] = ftn()
+        # print(f'dest_dict: {dest_dict}, key: {key}, set value: {dest_dict[key]}, default: {default}')
+    except Exception:
+        dest_dict[key] = default
 
+    return dest_dict[key]
 
 def sum():
     num1 = CAR_INPUTS['power_hp']
@@ -241,32 +247,27 @@ def sum():
     num55nw = MAIN_CALC['total_rear_damping2']
     num56nw = MAIN_CALC['per_rear_adjustment']
 
+    result7_l = lambda: num16 + num15
+    result7 = __set_var(ADJUSTMENTS, 'arbonlyslider', result7_l, 0) # new_percentage_front + anti_roll_bar_only
 
+    hp_per_ton_l = lambda: int(CAR_INPUTS['power_hp']/(CAR_INPUTS['weight']/2240))
+    hp_per_ton = __set_var(CAR_INPUTS, 'hp_per_ton', hp_per_ton_l, 0)
+
+    result2_l = num3 + num4 # front_percent + overall_balance2
+    result2 = __set_var(MAIN_CALC, 'new_percentage_front', result2_l, 0)
     
-    result7 = num16 + num15 # new_percentage_front + anti_roll_bar_only
-    ADJUSTMENTS['arbonlyslider'] = result7
+    result3_l = lambda: num3 + (num14 * -1) # front_percent + -overall_balance
+    result3 = __set_var(MAIN_CALC, 'new_percentage_front_neg', result3_l, 0)
 
-    CAR_INPUTS['hp_per_ton'] = int(CAR_INPUTS['power_hp']/(CAR_INPUTS['weight']/2240))
-
-    result2 = num3 + num4 # front_percent + overall_balance2
-    MAIN_CALC['new_percentage_front'] = result2
-
-    result3 = num3 + (num14 * -1) # front_percent + -overall_balance
-    MAIN_CALC['new_percentage_front_neg'] = result3
-
-    result4 = round((result7 / (100 - result7) * num5), 2) # spring_stiffness% x arb%
-    MAIN_CALC['rear_roll_bar'] = result4
+    result4_l = lambda: round((result7 / (100 - result7) * num5), 2) # spring_stiffness% x arb%
+    result4 = __set_var(MAIN_CALC, 'rear_roll_bar', result4_l, 0)
 
     result5 = num5 # front_arb
     MAIN_CALC['front_roll_bar'] = result5
     MAIN_CALC['result_front_rear2'] = result5
 
-    result6 = 0
-    try:
-        result6 = round(pow(result7 / (100 - result7), -2) * num5, 2)
-    except Exception:
-        pass
-    MAIN_CALC['front_roll_bar_less'] = result6
+    result6_l = lambda: round(pow(result7 / (100 - result7), -2) * num5, 2)
+    result6 = __set_var(MAIN_CALC, 'front_roll_bar_less', result6_l, 0)
     
     result8 = 'Front'
     result9 = 'Rear'
@@ -295,65 +296,64 @@ def sum():
     else:
         MAIN_CALC['rear_arb_results'] = round(num41, 2) # result_front_rear
 
-    result10 = round(num22 + ((num22/100) * num23), 2)
-    MAIN_CALC['front_rebound_damper'] = result10
+    result10_l = lambda: round(num22 + ((num22/100) * num23), 2)
+    result10 = __set_var(MAIN_CALC, 'front_rebound_damper', result10_l, 0)
 
-    result11 = round(num24 + ((num24/100) * num23), 2)
-    MAIN_CALC['rear_rebound_damper'] = result11
+    result11_l = lambda: round(num24 + ((num24/100) * num23), 2)
+    result11 = __set_var(MAIN_CALC, 'rear_rebound_damper', result11_l, 0)
     
-    result12 = round(num25 + ((num25/100) * num23), 2)
-    MAIN_CALC['front_bump_damper'] = result12
+    result12_l = lambda: round(num25 + ((num25/100) * num23), 2)
+    result12 = __set_var(MAIN_CALC, 'front_bump_damper', result12_l, 0)
 
-    result13 = round(num26 + ((num26/100) * num23), 2)
-    MAIN_CALC['rear_bump_damper2'] = result13
+    result13_l = lambda: round(num26 + ((num26/100) * num23), 2)
+    result13 = __set_var(MAIN_CALC, 'rear_bump_damper2', result13_l, 0)
 
-    result14 = round((num27/100) * num11 + num27, 2)
-    MAIN_CALC['bias_front_rebound_damper'] = result14
+    result14_l = lambda: round((num27/100) * num11 + num27, 2)
+    result14 = __set_var(MAIN_CALC, 'bias_front_rebound_damper', result14_l, 0)
     
-    result15 = round((num29/ 100) * num12 + num29, 2)
-    MAIN_CALC['bias_rear_rebound_damper'] = result15
+    result15_l = lambda: round((num29/ 100) * num12 + num29, 2)
+    result15 = __set_var(MAIN_CALC, 'bias_rear_rebound_damper', result15_l, 0)
 
-    result16 = round((num30/100) * num11 + num30, 2)
-    MAIN_CALC['bias_front_bump_damper'] = result16
+    result16_l = lambda: round((num30/100) * num11 + num30, 2)
+    result16 = __set_var(MAIN_CALC, 'bias_front_bump_damper', result16_l, 0)
 
-    result17 = round((num31/100) * num12 + num31, 2)
-    MAIN_CALC['bias_rear_bump_damper2'] = result17
+    result17_l = lambda: round((num31/100) * num12 + num31, 2)
+    result17 = __set_var(MAIN_CALC, 'bias_rear_bump_damper2', result17_l, 0)
 
-    result18 = round((math.log(0.667) * (num19) * ((num28)/100) / 32 / 1.5 * -1), 2)
-    MAIN_CALC['total_front_damping'] = result18
+    result18_l = lambda: round((math.log(0.667) * (num19) * ((num28)/100) / 32 / 1.5 * -1), 2)
+    result18 = __set_var(MAIN_CALC, 'total_front_damping', result18_l, 0)
 
-    result19 = round((math.log(0.667) * (num19) * ((100 - (num28)) / 100) / 32 / 1.5 * -1), 2)
-    MAIN_CALC['total_rear_damping2'] = result19
+    result19_l = lambda: round((math.log(0.667) * (num19) * ((100 - (num28)) / 100) / 32 / 1.5 * -1), 2)
+    result19 = __set_var(MAIN_CALC, 'total_rear_damping2', result19_l, 0)
 
-    result20 = round(num32 / ((num42 / 100) + 1), 2)
-    MAIN_CALC['front_rebound'] = result20
+    result20_l = lambda: round(num32 / ((num42 / 100) + 1), 2)
+    result20 = __set_var(MAIN_CALC, 'front_rebound', result20_l, 0)
 
-    result21 = round((num33 / ((num42 / 100) + 1)), 2)
-    MAIN_CALC['rear_rebound2'] = result21
+    result21_l = lambda: round((num33 / ((num42 / 100) + 1)), 2)
+    result21 = __set_var(MAIN_CALC, 'rear_rebound2', result21_l, 0)
 
-    result22 = round(((num42 / 100) * num22), 2)
-    MAIN_CALC['front_bump'] = result22
+    result22_l = lambda: round(((num42 / 100) * num22), 2)
+    result22 = __set_var(MAIN_CALC, 'front_bump', result22_l, 0)
     
-    result23 = round(((num42 / 100) * num24), 2)
-    MAIN_CALC['rear_bump2'] = result23
+    result23_l = lambda: round(((num42 / 100) * num24), 2)
+    result23 = __set_var(MAIN_CALC, 'rear_bump2', result23_l, 0)
 
-    result24 = round(num34, 2)
-    MAIN_CALC['rear_rebound_results'] = round(result24, 1)
+    result24_l = lambda: round(num34, 1)
+    result24 = __set_var(MAIN_CALC, 'rear_rebound_results', result24_l, 0)
 
-    result25 = round(num35, 1)
-    MAIN_CALC['front_rebound_results'] = round(result25, 1)
+    result25_l = lambda: round(num35, 1)
+    result25 = __set_var(MAIN_CALC, 'front_rebound_results', result25_l, 0)
 
-    result26 = num36
-    MAIN_CALC['front_bump_results'] = round(result26, 1)
+    result26_l = lambda: round(num36, 1)
+    result26 = __set_var(MAIN_CALC, 'front_bump_results', result26_l, 0)
 
-    result27 = num37
-    MAIN_CALC['rear_bump_results'] = round(result27, 1)
+    result27_l = lambda: round(num37, 1)
+    result27 = __set_var(MAIN_CALC, 'rear_bump_results', result27_l, 0)
 
     result30 = num6
     MAIN_CALC['front_aero_calculations'] = result30
-
    
-    result28 = 0
+    result28 = round(((100 - num16) / num16) * num6, 2)
     try:
         result28 = round(((100 - num16) / num16) * num6, 2)
     except Exception:
@@ -371,35 +371,35 @@ def sum():
     else:
         MAIN_CALC['rear_aero_results'] =round(result28, 0)
 
-    springresult1 = round((num19 * (result3 / 100) / 64 * 31.193), 1)
-    MAIN_CALC['front_springs_calculations'] = springresult1
+    springresult1_l = lambda: round((num19 * (result3 / 100) / 64 * 31.193), 1)
+    springresult1 = __set_var(MAIN_CALC, 'front_springs_calculations', springresult1_l, 0)
 
-    springresult2 = round((num19 * ((100 - result3) / 100) / 64 * 31.193), 1)
-    MAIN_CALC['rear_springs_calculations'] = springresult2
+    springresult2_l = lambda: round((num19 * ((100 - result3) / 100) / 64 * 31.193), 1)
+    springresult2 = __set_var(MAIN_CALC, 'rear_springs_calculations', springresult2_l, 0)
 
-    springresult3 = ((springresult1 / 100) * num7) + springresult1
-    MAIN_CALC['spring_stiff_cal_front'] = springresult3
+    springresult3_l = lambda: ((springresult1 / 100) * num7) + springresult1
+    springresult3 = __set_var(MAIN_CALC, 'spring_stiff_cal_front', springresult3_l, 0)
 
-    springresult4 = (num17 / 100) * num8 + num17
-    MAIN_CALC['spring_stiff_cal_rear'] = springresult4
+    springresult4_l = lambda: (num17 / 100) * num8 + num17
+    springresult4 = __set_var(MAIN_CALC, 'spring_stiff_cal_rear', springresult4_l, 0)
     
-    springresult5 = (springresult2 / 100) * num7 + springresult2
-    MAIN_CALC['spring_stiff_cal_front2'] = springresult5
+    springresult5_l = lambda: (springresult2 / 100) * num7 + springresult2
+    springresult5 = __set_var(MAIN_CALC, 'spring_stiff_cal_front2', springresult5_l, 0)
 
-    springresult6 = (num18 / 100) * num9 + num18
-    MAIN_CALC['spring_stiff_cal_rear2'] = springresult6
+    springresult6_l = lambda: (num18 / 100) * num9 + num18
+    springresult6 = __set_var(MAIN_CALC, 'spring_stiff_cal_rear2', springresult6_l, 0)
 
     if (unit == 'English'):
         MAIN_CALC['front_springs_results'] = round(num20, 1)
     elif (unit == 'Metric'):
-        springresult7 = round((springresult4) * 0.17858, 1)
-        MAIN_CALC['front_springs_results'] = springresult7
+        springresult7_l = lambda: round((springresult4) * 0.17858, 1)
+        springresult7 = __set_var(MAIN_CALC, 'front_springs_results', springresult7_l, 0)
 
     if (unit == 'English'):
         MAIN_CALC['rear_springs_results'] = round(num21, 1)
     elif (unit == 'Metric'):
-        springresult8 = round((springresult6) * 0.17858, 1)
-        MAIN_CALC['rear_springs_results'] = springresult8
+        springresult8_l = lambda: round((springresult6) * 0.17858, 1)
+        springresult8 = __set_var(MAIN_CALC, 'rear_springs_results', springresult8_l, 0)
 
     if (num16 > 50.0):
         UI_TEXT['arbfr'] = "Rear ARB"
