@@ -128,8 +128,8 @@ MAIN_CALC = {
 
 ADJUSTMENTS = {
     "arbonlyslider": 0,
-    "": 0.0,
-    "": 0.0,
+    "increase-front-toe-out-input2": 0.0,
+    "adjust_increase_front_toe_out_input2": 0.0,
     "": 0.0,
     "": 0.0,
     "": 0.0,
@@ -405,6 +405,55 @@ def sum():
         UI_TEXT['arbfr'] = "Rear ARB"
     else:
         UI_TEXT['arbfr'] = "Front ARB"
+
+    weightcal1 = num2
+    weightcal = num2 * 2.20462
+
+    if (unit == 'English'):
+        MAIN_CALC['weight_cal_kg'] = weightcal1
+    elif (unit == 'Metric'):
+        MAIN_CALC['weight_cal_kg'] = weightcal
+    
+    if (unit == 'English'):
+        UI_TEXT['weightkg'] = "LB"
+        UI_TEXT['frontaerokg'] = "LB"
+        UI_TEXT['frontareoreskg'] = "LB"
+        UI_TEXT['frontareokgresfine'] = "LB"
+        UI_TEXT['rearareoreskg'] = "LB"
+        UI_TEXT['rearareokgresfine'] = "LB"
+    
+    if(unit == 'Metric') {
+        UI_TEXT['weightkg'] = "KG"
+        UI_TEXT['frontaerokg'] = "KG"
+        UI_TEXT['frontareoreskg'] = "KG"
+        UI_TEXT['frontareokgresfine'] = "KG"
+        UI_TEXT['rearareoreskg'] = "KG"
+        UI_TEXT['rearareokgresfine'] = "KG"
+    
+    LBIN = "LB/IN"
+    kgfcm = "kgf/cm"
+
+    if(unit == 'English'):
+        UI_TEXT['frontspringskg'] = LBIN
+        UI_TEXT['frontspringskgfine'] = LBIN
+        UI_TEXT['rearspringskg'] = LBIN
+        UI_TEXT['rearspringskgfine'] = LBIN
+    
+    if(unit == 'Metric'):
+        UI_TEXT['rearspringskgfine'] = kgfcm
+        UI_TEXT['rearspringskg'] = kgfcm
+        UI_TEXT['frontspringskgfine'] = kgfcm
+        UI_TEXT['frontspringskg'] = kgfcm
+    
+    fronttoe = ADJUSTMENTS['increase_front_toe_out_input2']
+    finetuneunder1_l = lambda: round(fronttoe * 0.1, 1)
+    finetuneunder1 = __set_var(ADJUSTMENTS, 'adjust_increase_front_toe_out_input2', finetuneunder1_l, 0.0)
+    
+    fronttoe3 = MAIN_CALC['front_toe_results']
+    fronttoe4_l = lambda: round(fronttoe3 + finetuneunder1, 1)
+    fronttoe4 = __set_var(MAIN_CALC, 'front_toe_fine_tune_results', fronttoe4_l, 0.0)
+    ADJUSTMENTS['increase_front_toe_ft_res'] = fronttoe4
+
 
 if __name__ == "__main__":
     print('Running manual Forza_Tune')

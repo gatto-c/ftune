@@ -1,4 +1,5 @@
-hooks/**
+__pycache__/
+hooks/
 info/
 objects/
 refs/
