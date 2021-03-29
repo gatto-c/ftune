@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "/home/chris/.virtualenvs/forza-tune/bin/python"
+    "python.pythonPath": "/home/chris/.virtualenvs/forza-tune/bin/python",
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#0084ff",
+        "tab.unfocusedActiveBorder": "#000000"
+    }
 }

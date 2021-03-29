@@ -130,22 +130,62 @@ ADJUSTMENTS = {
     "arbonlyslider": 0,
     "increase-front-toe-out-input2": 0.0,
     "adjust_increase_front_toe_out_input2": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
-    "": 0.0,
+    "increase_front_bump_damping_input": 0.0,
+    "increase_front_toe_out_input2": 0.0,
+    "adjust_increase_front_bump_damping_input2": 0.0,
+    "increase_front_bump_damping_ft_res": 0.0,
+    "increase_caster_angle_input2": 0.0,
+    "adjust_increase_caster_angle_input2": 0.0,
+    "increase_caster_angle_ft_res": 0.0,
+    "increase_front_downforce_input2": 0.0,
+    "adjust_increase_front_downforce_input2": 0.0,
+    "increase_front_downforce_ft_res": 0.0,
+    "stiffen_front_arb_input2": 0.0,
+    "adjust_stiffen_front_arb_input2": 0.0,
+    "stiffen_front_arb_ft_res": 0.0,
+    "increase_front_spring_rate_input2": 0.0,
+    "adjust_increase_front_spring_rate_input2": 0.0,
+    "increase_front_spring_rate_ft_res": 0.0,
+    "increase_front_bump_damping2_input2": 0.0,
+    "adjust_increase_front_bump_damping2_input2": 0.0,
+    "increase_front_bump_damping2_ft_res": 0.0,
+    "soften_front_arb_input2": 0.0,
+    "adjust_soften_front_arb_input2": 0.0,
+    "soften_front_arb_ft_res": 0.0,
+    "soften_front_spring_rate_input2": 0.0,
+    "adjust_soften_front_spring_rate_input2": 0.0,
+    "soften_front_spring_rate_ft_res": 0.0,
+    "increase_front_shock_stiffness_input2": 0.0,
+    "increase_front_shock_stiffness_input": 0.0,
+    "adjust_increase_front_shock_stiffness_input2": 0.0,
+    "increase_front_shock_stiffness_ft_res": 0.0,
+    "front_bump_slider_input2": 0.0,
+    "adjust_front_bump_slider_input2": 0.0,
+    "front_bump_slider_input_ft_res": 0.0,
+    "adjust_increase_negative_front_wheel_camber_input2": 0.0,
+    "increase_negative_front_wheel_camber_input2": 0.0,
+    "increase_negative_front_wheel_camber_ft_res": 0.0,
+    "reduce_front_rebound_damping_input2": 0.0,
+    "adjust_reduce_front_rebound_damping_input2": 0.0,
+    "reduce_front_rebound_damping_ft_res": 0.0,
+    "os_increase_rear_downforce_input2": 0.0,
+    "adjust_os_increase_rear_downforce_input2": 0.0,
+    "os_increase_rear_rebound_damping_input2": 0.0,
+    "adjust_os_increase_rear_rebound_damping_input2": 0.0,
+    "os_increase_rear_rebound_damping_ft_res": 0.0,
+    "os_increase_rear_downforce_ft_res": 0.0,
+    "os_reduce_rear_shock_stiffness_ft_res": 0.0,
+    "os_reduce_rear_shock_stiffness_input": 0.0,
+    "front_bump_slider2_input2": 0.0,
+    "adjust_front_bump_slider2_input2": 0.0,
+    "front_bump_slider2_input2_ft_res": 0.0,
+    "os_increase_negative_rear_wheel_camber_input2": 0.0,
+    "os_increase_negative_rear_wheel_camber_ft_res": 0.0,
+    "os_increase_rear_toe_in_input2": 0.0,
+    "os_increase_rear_toe_in_ft_res": 0.0,
+    "os_reduce_rear_bump_damping_input2": 0.0,
+    "adjust_os_reduce_rear_bump_damping_input2": 0.0,
+    "os_reduce_rear_bump_damping_ft_res": 0.0,
     "": 0.0,
     "": 0.0,
     "": 0.0,
@@ -189,7 +229,7 @@ def __set_var(dest_dict, key, ftn, default):
     return dest_dict[key]
 
 def sum():
-    num1 = CAR_INPUTS['power_hp']
+    num1 = CAR_INPUTS['power_hp'] #pylint: disable=unused-variable
     num2 = CAR_INPUTS['weight']
     num3 = CAR_INPUTS['front_percent']
     num4 = MAIN_CALC['overall_balance2']
@@ -233,28 +273,28 @@ def sum():
     word3 = UI_TEXT['front_rear2']
 
     num43nw = MAIN_CALC['final_adjusted_ratio_top']
-    num44nw = MAIN_CALC['final_adjusted_ratio_bottom']
-    num45nw = MAIN_CALC['adjusted_split_rebound']
-    num46nw = MAIN_CALC['adjusted_split_bump']
-    num47nw = MAIN_CALC['adjusted_ratio_top_left']
-    num48nw = MAIN_CALC['adjusted_ratio_top_right']
-    num49nw = MAIN_CALC['adjusted_ratio_bottom_left']
-    num50nw = MAIN_CALC['adjusted_ratio_bottom_right']
-    num51nw = MAIN_CALC['increase_rear_damping_ratio_understeer_input2']
-    num52nw = MAIN_CALC['increase_rear_damping_ratio_understeer_input2_res']
-    num53nw = MAIN_CALC['decrease_rear_damping_ratio_oversteer_input2']
-    num54nw = MAIN_CALC['decrease_rear_damping_ratio_oversteer_input2_res']
-    num55nw = MAIN_CALC['total_rear_damping2']
-    num56nw = MAIN_CALC['per_rear_adjustment']
+    num44nw = MAIN_CALC['final_adjusted_ratio_bottom'] #pylint: disable=unused-variable
+    num45nw = MAIN_CALC['adjusted_split_rebound'] #pylint: disable=unused-variable
+    num46nw = MAIN_CALC['adjusted_split_bump'] #pylint: disable=unused-variable
+    num47nw = MAIN_CALC['adjusted_ratio_top_left'] #pylint: disable=unused-variable
+    num48nw = MAIN_CALC['adjusted_ratio_top_right'] #pylint: disable=unused-variable
+    num49nw = MAIN_CALC['adjusted_ratio_bottom_left'] #pylint: disable=unused-variable
+    num50nw = MAIN_CALC['adjusted_ratio_bottom_right'] #pylint: disable=unused-variable
+    num51nw = MAIN_CALC['increase_rear_damping_ratio_understeer_input2'] #pylint: disable=unused-variable
+    num52nw = MAIN_CALC['increase_rear_damping_ratio_understeer_input2_res'] #pylint: disable=unused-variable
+    num53nw = MAIN_CALC['decrease_rear_damping_ratio_oversteer_input2'] #pylint: disable=unused-variable
+    num54nw = MAIN_CALC['decrease_rear_damping_ratio_oversteer_input2_res'] #pylint: disable=unused-variable
+    num55nw = MAIN_CALC['total_rear_damping2'] #pylint: disable=unused-variable
+    num56nw = MAIN_CALC['per_rear_adjustment'] #pylint: disable=unused-variable
 
     result7_l = lambda: num16 + num15
     result7 = __set_var(ADJUSTMENTS, 'arbonlyslider', result7_l, 0) # new_percentage_front + anti_roll_bar_only
 
     hp_per_ton_l = lambda: int(CAR_INPUTS['power_hp']/(CAR_INPUTS['weight']/2240))
-    hp_per_ton = __set_var(CAR_INPUTS, 'hp_per_ton', hp_per_ton_l, 0)
+    hp_per_ton = __set_var(CAR_INPUTS, 'hp_per_ton', hp_per_ton_l, 0) #pylint: disable=unused-variable
 
     result2_l = num3 + num4 # front_percent + overall_balance2
-    result2 = __set_var(MAIN_CALC, 'new_percentage_front', result2_l, 0)
+    result2 = __set_var(MAIN_CALC, 'new_percentage_front', result2_l, 0) #pylint: disable=unused-variable
     
     result3_l = lambda: num3 + (num14 * -1) # front_percent + -overall_balance
     result3 = __set_var(MAIN_CALC, 'new_percentage_front_neg', result3_l, 0)
@@ -297,67 +337,64 @@ def sum():
         MAIN_CALC['rear_arb_results'] = round(num41, 2) # result_front_rear
 
     result10_l = lambda: round(num22 + ((num22/100) * num23), 2)
-    result10 = __set_var(MAIN_CALC, 'front_rebound_damper', result10_l, 0)
+    result10 = __set_var(MAIN_CALC, 'front_rebound_damper', result10_l, 0) #pylint: disable=unused-variable
 
     result11_l = lambda: round(num24 + ((num24/100) * num23), 2)
-    result11 = __set_var(MAIN_CALC, 'rear_rebound_damper', result11_l, 0)
+    result11 = __set_var(MAIN_CALC, 'rear_rebound_damper', result11_l, 0) #pylint: disable=unused-variable
     
     result12_l = lambda: round(num25 + ((num25/100) * num23), 2)
-    result12 = __set_var(MAIN_CALC, 'front_bump_damper', result12_l, 0)
+    result12 = __set_var(MAIN_CALC, 'front_bump_damper', result12_l, 0) #pylint: disable=unused-variable
 
     result13_l = lambda: round(num26 + ((num26/100) * num23), 2)
-    result13 = __set_var(MAIN_CALC, 'rear_bump_damper2', result13_l, 0)
+    result13 = __set_var(MAIN_CALC, 'rear_bump_damper2', result13_l, 0) #pylint: disable=unused-variable
 
     result14_l = lambda: round((num27/100) * num11 + num27, 2)
-    result14 = __set_var(MAIN_CALC, 'bias_front_rebound_damper', result14_l, 0)
+    result14 = __set_var(MAIN_CALC, 'bias_front_rebound_damper', result14_l, 0) #pylint: disable=unused-variable
     
     result15_l = lambda: round((num29/ 100) * num12 + num29, 2)
-    result15 = __set_var(MAIN_CALC, 'bias_rear_rebound_damper', result15_l, 0)
+    result15 = __set_var(MAIN_CALC, 'bias_rear_rebound_damper', result15_l, 0) #pylint: disable=unused-variable
 
     result16_l = lambda: round((num30/100) * num11 + num30, 2)
-    result16 = __set_var(MAIN_CALC, 'bias_front_bump_damper', result16_l, 0)
+    result16 = __set_var(MAIN_CALC, 'bias_front_bump_damper', result16_l, 0) #pylint: disable=unused-variable
 
     result17_l = lambda: round((num31/100) * num12 + num31, 2)
-    result17 = __set_var(MAIN_CALC, 'bias_rear_bump_damper2', result17_l, 0)
+    result17 = __set_var(MAIN_CALC, 'bias_rear_bump_damper2', result17_l, 0) #pylint: disable=unused-variable
 
     result18_l = lambda: round((math.log(0.667) * (num19) * ((num28)/100) / 32 / 1.5 * -1), 2)
-    result18 = __set_var(MAIN_CALC, 'total_front_damping', result18_l, 0)
+    result18 = __set_var(MAIN_CALC, 'total_front_damping', result18_l, 0) #pylint: disable=unused-variable
 
     result19_l = lambda: round((math.log(0.667) * (num19) * ((100 - (num28)) / 100) / 32 / 1.5 * -1), 2)
-    result19 = __set_var(MAIN_CALC, 'total_rear_damping2', result19_l, 0)
+    result19 = __set_var(MAIN_CALC, 'total_rear_damping2', result19_l, 0) #pylint: disable=unused-variable
 
     result20_l = lambda: round(num32 / ((num42 / 100) + 1), 2)
-    result20 = __set_var(MAIN_CALC, 'front_rebound', result20_l, 0)
+    result20 = __set_var(MAIN_CALC, 'front_rebound', result20_l, 0) #pylint: disable=unused-variable
 
     result21_l = lambda: round((num33 / ((num42 / 100) + 1)), 2)
-    result21 = __set_var(MAIN_CALC, 'rear_rebound2', result21_l, 0)
+    result21 = __set_var(MAIN_CALC, 'rear_rebound2', result21_l, 0) #pylint: disable=unused-variable
 
     result22_l = lambda: round(((num42 / 100) * num22), 2)
-    result22 = __set_var(MAIN_CALC, 'front_bump', result22_l, 0)
+    result22 = __set_var(MAIN_CALC, 'front_bump', result22_l, 0) #pylint: disable=unused-variable
     
     result23_l = lambda: round(((num42 / 100) * num24), 2)
-    result23 = __set_var(MAIN_CALC, 'rear_bump2', result23_l, 0)
+    result23 = __set_var(MAIN_CALC, 'rear_bump2', result23_l, 0) #pylint: disable=unused-variable
 
     result24_l = lambda: round(num34, 1)
-    result24 = __set_var(MAIN_CALC, 'rear_rebound_results', result24_l, 0)
+    result24 = __set_var(MAIN_CALC, 'rear_rebound_results', result24_l, 0) #pylint: disable=unused-variable
 
     result25_l = lambda: round(num35, 1)
-    result25 = __set_var(MAIN_CALC, 'front_rebound_results', result25_l, 0)
+    result25 = __set_var(MAIN_CALC, 'front_rebound_results', result25_l, 0) #pylint: disable=unused-variable
 
     result26_l = lambda: round(num36, 1)
-    result26 = __set_var(MAIN_CALC, 'front_bump_results', result26_l, 0)
+    result26 = __set_var(MAIN_CALC, 'front_bump_results', result26_l, 0) #pylint: disable=unused-variable
 
     result27_l = lambda: round(num37, 1)
-    result27 = __set_var(MAIN_CALC, 'rear_bump_results', result27_l, 0)
+    result27 = __set_var(MAIN_CALC, 'rear_bump_results', result27_l, 0) #pylint: disable=unused-variable
 
     result30 = num6
     MAIN_CALC['front_aero_calculations'] = result30
    
-    result28 = round(((100 - num16) / num16) * num6, 2)
-    try:
-        result28 = round(((100 - num16) / num16) * num6, 2)
-    except Exception:
-        pass
+    result28_l = lambda: round(((100 - num16) / num16) * num6, 2)
+    result28 = __set_var(MAIN_CALC, 'result28', result28_l, 0)
 
     if (num16 == 0.0):
         MAIN_CALC['rear_aero_calculations'] = 0.0
@@ -378,13 +415,13 @@ def sum():
     springresult2 = __set_var(MAIN_CALC, 'rear_springs_calculations', springresult2_l, 0)
 
     springresult3_l = lambda: ((springresult1 / 100) * num7) + springresult1
-    springresult3 = __set_var(MAIN_CALC, 'spring_stiff_cal_front', springresult3_l, 0)
+    springresult3 = __set_var(MAIN_CALC, 'spring_stiff_cal_front', springresult3_l, 0) #pylint: disable=unused-variable
 
     springresult4_l = lambda: (num17 / 100) * num8 + num17
     springresult4 = __set_var(MAIN_CALC, 'spring_stiff_cal_rear', springresult4_l, 0)
     
     springresult5_l = lambda: (springresult2 / 100) * num7 + springresult2
-    springresult5 = __set_var(MAIN_CALC, 'spring_stiff_cal_front2', springresult5_l, 0)
+    springresult5 = __set_var(MAIN_CALC, 'spring_stiff_cal_front2', springresult5_l, 0) #pylint: disable=unused-variable
 
     springresult6_l = lambda: (num18 / 100) * num9 + num18
     springresult6 = __set_var(MAIN_CALC, 'spring_stiff_cal_rear2', springresult6_l, 0)
@@ -393,13 +430,13 @@ def sum():
         MAIN_CALC['front_springs_results'] = round(num20, 1)
     elif (unit == 'Metric'):
         springresult7_l = lambda: round((springresult4) * 0.17858, 1)
-        springresult7 = __set_var(MAIN_CALC, 'front_springs_results', springresult7_l, 0)
+        springresult7 = __set_var(MAIN_CALC, 'front_springs_results', springresult7_l, 0) #pylint: disable=unused-variable
 
     if (unit == 'English'):
         MAIN_CALC['rear_springs_results'] = round(num21, 1)
     elif (unit == 'Metric'):
         springresult8_l = lambda: round((springresult6) * 0.17858, 1)
-        springresult8 = __set_var(MAIN_CALC, 'rear_springs_results', springresult8_l, 0)
+        springresult8 = __set_var(MAIN_CALC, 'rear_springs_results', springresult8_l, 0) #pylint: disable=unused-variable
 
     if (num16 > 50.0):
         UI_TEXT['arbfr'] = "Rear ARB"
@@ -422,7 +459,7 @@ def sum():
         UI_TEXT['rearareoreskg'] = "LB"
         UI_TEXT['rearareokgresfine'] = "LB"
     
-    if(unit == 'Metric') {
+    if(unit == 'Metric'):
         UI_TEXT['weightkg'] = "KG"
         UI_TEXT['frontaerokg'] = "KG"
         UI_TEXT['frontareoreskg'] = "KG"
@@ -454,6 +491,232 @@ def sum():
     fronttoe4 = __set_var(MAIN_CALC, 'front_toe_fine_tune_results', fronttoe4_l, 0.0)
     ADJUSTMENTS['increase_front_toe_ft_res'] = fronttoe4
 
+    frontbump = MAIN_CALC['front_bump_results']
+    frontbump2 = ADJUSTMENTS['increase_front_bump_damping_input']
+    frontbumpadj_l = lambda: round((frontbump / 20) * frontbump2, 1)
+    frontbumpadj = __set_var(ADJUSTMENTS, 'adjust_increase_front_bump_damping_input2', frontbumpadj_l, 0.0) #pylint: disable=unused-variable
+
+    frontbumpres = MAIN_CALC['front_rebound_results']
+    finetuneentry = ADJUSTMENTS['adjust_increase_front_bump_damping_input2']
+    finetuneentry_1 = lambda: frontbumpres + finetuneentry
+    finetuneentry = __set_var(ADJUSTMENTS, 'increase_front_bump_damping_ft_res', finetuneentry_1, 0.0)
+
+    casterang = ADJUSTMENTS['increase_caster_angle_input2']
+    casterangadj_l = lambda: round(casterang * 0.2, 1)
+    casterangadj = __set_var(ADJUSTMENTS, 'adjust_increase_caster_angle_input2', casterangadj_l, 0.0)
+
+    caster2 = MAIN_CALC['front_caster_results']
+    casterangres_l = lambda: round(caster2 + casterangadj, 1)
+    casterangres = __set_var(MAIN_CALC, 'front_caster_fine_tune_results', casterangres_l, 0.0)
+    ADJUSTMENTS['increase_caster_angle_ft_res'] = casterangres
+
+    frontaer = MAIN_CALC['front_aero_results']
+    frontaersl = ADJUSTMENTS['increase_front_downforce_input2']
+    frontaerres_l = lambda: round((frontaer / 20) * frontaersl, 0)
+    frontaerres = __set_var(ADJUSTMENTS, 'adjust_increase_front_downforce_input2', frontaerres_l, 0.0)
+
+    frontaerres1_l = lambda: round((frontaerres + frontaer), 0)
+    frontaerres1 = __set_var(MAIN_CALC, 'front_aero_fine_tune_results', frontaerres1_l, 0)
+    ADJUSTMENTS['increase_front_downforce_ft_res'] = frontaerres1
+
+    frontarb = MAIN_CALC['front_arb_results']
+    frontarb1 = ADJUSTMENTS['stiffen_front_arb_input2']
+    frontarbres_l = lambda: round(((frontarb / 10) * frontarb1), 1)
+    frontarbres = __set_var(ADJUSTMENTS, 'adjust_stiffen_front_arb_input2', frontarbres_l, 0.0) #pylint: disable=unused-variable
+
+    undermidarb1 = ADJUSTMENTS['adjust_stiffen_front_arb_input2']
+    frontarbres1_l = lambda: round((frontarb + undermidarb1), 1)
+    frontarbres1 = __set_var(ADJUSTMENTS, 'stiffen_front_arb_ft_res', frontarbres1_l, 0.0) #pylint: disable=unused-variable
+
+    frontsp = MAIN_CALC['front_springs_results']
+    frontsp1 = ADJUSTMENTS['increase_front_spring_rate_input2']
+    frontspres_l = lambda: round(((frontsp / 20) * frontsp1), 1)
+    frontspres = __set_var(ADJUSTMENTS, 'adjust_increase_front_spring_rate_input2', frontspres_l, 0.0)
+
+    frontspres1_l = lambda: round((frontsp + frontspres), 1)
+    frontspres1 = __set_var(ADJUSTMENTS, 'increase_front_spring_rate_ft_res', frontspres1_l, 0.0) #pylint: disable=unused-variable
+
+    frontbm = MAIN_CALC['front_bump_results']
+    frontbm1 = ADJUSTMENTS['increase_front_bump_damping2_input2']
+    frontbmres_l = lambda: round((frontbm / 20) * frontbm1, 1)
+    frontbmres = __set_var(ADJUSTMENTS, 'adjust_increase_front_bump_damping2_input2', frontbmres_l, 0.0) #pylint: disable=unused-variable
+
+    frontbmres1 = ADJUSTMENTS['adjust_increase_front_bump_damping2_input2']
+    frontbmres3 = MAIN_CALC['front_bump_results']
+    frontbmres2_l = lambda: round(frontbmres1 + frontbmres3, 1)
+    frontbmres2 = __set_var(ADJUSTMENTS, 'increase_front_bump_damping2_ft_res', frontbmres2_l, 0.0) #pylint: disable=unused-variable
+
+    frontsft = MAIN_CALC['front_arb_results']
+    frontsft1 = ADJUSTMENTS['soften_front_arb_input2']
+    frontsftres_l = lambda: round((frontsft / 10) * frontsft1, 1)
+    frontsftres = __set_var(ADJUSTMENTS, 'adjust_soften_front_arb_input2', frontsftres_l, 0.0) #pylint: disable=unused-variable
+
+    frontsftres1 = ADJUSTMENTS['stiffen_front_arb_ft_res']
+    frontsftres3 = ADJUSTMENTS['adjust_soften_front_arb_input2']
+    frontsftres2_l = lambda: round(frontsftres1 + frontsftres3, 2)
+    frontsftres2 = __set_var(ADJUSTMENTS, 'soften_front_arb_ft_res', frontsftres2_l, 0.0)
+    front_arb_fine_tune_results = frontsftres2 #pylint: disable=unused-variable
+
+    frontsftsp = MAIN_CALC['front_springs_results']
+    frontsftsp1 = ADJUSTMENTS['soften_front_spring_rate_input2']
+    frontsftspres_l = lambda: round((frontsftsp / 20) * frontsftsp1, 1)
+    frontsftspres = __set_var(ADJUSTMENTS, 'adjust_soften_front_spring_rate_input2', frontsftspres_l, 0.0)
+
+    frontsftspres1 = ADJUSTMENTS['increase_front_spring_rate_ft_res']
+    frontsftspres2_l = lambda: round(frontsftspres1 + frontsftspres, 1)
+    frontsftspres2 = __set_var(ADJUSTMENTS, 'soften_front_spring_rate_ft_res', frontsftspres2_l, 0.0)
+    ADJUSTMENTS['front_springs_fine_tune_results'] = frontsftspres2
+
+    frontshst = MAIN_CALC['front_rebound_results']
+    frontshst1 = ADJUSTMENTS['increase_front_shock_stiffness_input2']
+    frontshstres_l = lambda: round((frontshst / 20) * frontshst1, 1)
+    frontshstres = __set_var(ADJUSTMENTS, 'adjust_increase_front_shock_stiffness_input2', frontshstres_l, 0.0) #pylint: disable=unused-variable
+
+    undermid1 = ADJUSTMENTS['adjust_increase_front_shock_stiffness_input2']
+    undermid2 = ADJUSTMENTS['increase_front_bump_damping_ft_res']
+    frontshstres1_l = lambda: round(undermid1 + undermid2, 1)
+    frontshstres1 = __set_var(ADJUSTMENTS, 'increase_front_shock_stiffness_ft_res', frontshstres1_l, 0.0) #pylint: disable=unused-variable
+
+    sliderfrbm = ADJUSTMENTS['increase_front_shock_stiffness_input']
+    sliderfrbm2_l = lambda: sliderfrbm * 2
+    sliderfrbm2 = __set_var(ADJUSTMENTS, 'front_bump_slider_input2', sliderfrbm2_l, 0.0) #pylint: disable=unused-variable
+
+    underst1 = MAIN_CALC['front_bump_results']
+    underst2 = ADJUSTMENTS['front_bump_slider_input2']
+    underst3_l = lambda: round((underst1 / 20) * underst2, 1)
+    underst3 = __set_var(ADJUSTMENTS, 'adjust_front_bump_slider_input2', underst3_l, 0.0) #pylint: disable=unused-variable
+
+    underst4 = ADJUSTMENTS['adjust_front_bump_slider_input2']
+    underst46 = ADJUSTMENTS['increase_front_bump_damping2_ft_res']
+    underst5_l = lambda: round(underst4 + underst46, 1)
+    underst5 = __set_var(ADJUSTMENTS, 'front_bump_slider_input_ft_res', underst5_l, 0.0)
+    MAIN_CALC['front_bump_fine_tune_results'] = underst5
+
+    frontcamres_l = lambda: (underst9 / 5) * underst7
+    frontcamres = __set_var(ADJUSTMENTS, 'adjust_increase_negative_front_wheel_camber_input2', frontcamres_l, 0.0)
+
+    underst7 = ADJUSTMENTS['increase_negative_front_wheel_camber_input2']
+    underst9 = MAIN_CALC['front_camber_results']
+    frontcamres_l = lambda: (underst9 / 5) * underst7
+    frontcamres = __set_var(ADJUSTMENTS, 'adjust_increase_negative_front_wheel_camber_input2', frontcamres_l, 0.0)
+
+    underst8_l = lambda round:(frontcamres + underst9, 1)
+    underst8 = __set_var(ADJUSTMENTS, 'increase_negative_front_wheel_camber_ft_res', underst8_l, 0.0)
+    MAIN_CALC['front_camber_fine_tune_results'] = underst8
+
+    underst10 = MAIN_CALC['front_rebound_results']
+    underst11 = ADJUSTMENTS['reduce_front_rebound_damping_input2']
+    underst12_l = lambda: round((underst10 / 20) * underst11, 1)
+    underst12 = __set_var(ADJUSTMENTS, 'adjust_reduce_front_rebound_damping_input2', underst12_l, 0.0)
+
+    underst13 = ADJUSTMENTS['increase_front_shock_stiffness_ft_res']
+    underst14_l = lambda: round(underst13 + underst12, 1)
+    underst14 = __set_var(ADJUSTMENTS, 'reduce_front_rebound_damping_ft_res', underst14_l, 0.0)
+    MAIN_CALC['front_rebound_fine_tune_results'] = underst14
+
+    ovrstr1 = MAIN_CALC['rear_aero_results']
+    ovrstr2 = ADJUSTMENTS['os_increase_rear_downforce_input2']
+    ovrstr3_l = lambda: round((ovrstr1 / 20) * ovrstr2, 1)
+    ovrstr3 = __set_var(ADJUSTMENTS, 'adjust_os_increase_rear_downforce_input2', ovrstr3_l, 0.0) #pylint: disable=unused-variable
+
+    ovrstr5 = MAIN_CALC['rear_rebound_results']
+    ovrstr6 = ADJUSTMENTS['os_increase_rear_rebound_damping_input2']
+    ovrstr7_l = lambda: round((ovrstr5 / 20) * ovrstr6, 2)
+    ovrstr7 = __set_var(ADJUSTMENTS, 'adjust_os_increase_rear_rebound_damping_input2', ovrstr7_l, 0.0) #pylint: disable=unused-variable
+
+    osincreasedf = ADJUSTMENTS['adjust_os_increase_rear_rebound_damping_input2']
+    ovrstr4_l = lambda: round(osincreasedf + num43nw, 2)
+    ovrstr4 = __set_var(ADJUSTMENTS, 'os_increase_rear_rebound_damping_ft_res', ovrstr4_l, 0.0) #pylint: disable=unused-variable
+
+
+
+
+    ovrstr9 = MAIN_CALC['rear_springs_results']
+    ovrstr10 = ADJUSTMENTS['os_increase_rear_spring_rate_input2']
+    ovrstr11_l = lambda: round((ovrstr9 / 20) * ovrstr10, 1)
+    ovrstr11 = __set_var(ADJUSTMENTS, 'adjust_os_increase_rear_spring_rate_input2', ovrstr11_l, 0.0)
+
+    ovrstr12_l = lambda: round(ovrstr9 + ovrstr11, 1)
+    ovrstr12 = __set_var(ADJUSTMENTS, 'os_increase_rear_spring_rate_ft_res', ovrstr12_l, 0.0) #pylint: disable=unused-variable
+
+    ovrstr13 = MAIN_CALC['rear_arb_results']
+    ovrstr14 = ADJUSTMENTS['os_soften_rear_arb_input2']
+    ovrstr15_l = lambda: round((ovrstr13 / 10) * ovrstr14, 1)
+    ovrstr15 = __set_var(ADJUSTMENTS, 'adjust_os_soften_rear_arb_input2', ovrstr15_l, 0.0)
+
+    ovrstr16_l = lambda: round(ovrstr13 + ovrstr15, 2)
+    ovrstr16 = __set_var(ADJUSTMENTS, 'os_soften_rear_arb_ft_res', ovrstr16_l, 0.0)
+    MAIN_CALC['rear_arb_fine_tune_results'] = ovrstr16
+
+    ovrstr17 = MAIN_CALC['rear_springs_results']
+    ovrstr18 = ADJUSTMENTS['os_soften_rear_spring_rate_input2']
+    ovrstr19_l = lambda: round((ovrstr17 / 20) * ovrstr18, 1)
+    ovrstr19 = __set_var(ADJUSTMENTS, 'adjust_os_soften_rear_spring_rate_input2', ovrstr19_l, 0.0)
+
+    ovrstr20 = ADJUSTMENTS['os_increase_rear_spring_rate_ft_res']
+    ovrstr21_l = lambda: round(ovrstr20 + ovrstr19, 1)
+    ovrstr21 = __set_var(ADJUSTMENTS, 'os_soften_rear_spring_rate_ft_res', ovrstr21_l, 0.0)
+    MAIN_CALC['rear_springs_fine_tune_results'] = ovrstr21
+
+    ovrstr22 = MAIN_CALC['rear_rebound_results']
+    ovrstr23 = ADJUSTMENTS['os_reduce_rear_shock_stiffness_input2']
+    ovrstr24_l = lambda: round((ovrstr22 / 20) * ovrstr23, 1)
+    ovrstr24 = __set_var(ADJUSTMENTS, 'adjust_os_reduce_rear_shock_stiffness_input2', ovrstr24_l, 0.0) #pylint: disable=unused-variable
+
+    downforceadj_l = lambda: round((ovrstr1 / 20) * ovrstr2, 1)
+    downforceadj = __set_var(ADJUSTMENTS, 'adjust_os_increase_rear_downforce_input2', downforceadj_l, 0.0) #pylint: disable=unused-variable
+
+    rearaero = MAIN_CALC['rear_aero_results']
+    downadjust = ADJUSTMENTS['adjust_os_increase_rear_downforce_input2']
+    downforceres_l = lambda: round(rearaero + downadjust, 0)
+    downforceres = __set_var(ADJUSTMENTS, 'os_increase_rear_downforce_ft_res', downforceres_l, 0.0)
+    MAIN_CALC['rear_aero_fine_tune_results'] = downforceres
+
+    ovrstr25 = ADJUSTMENTS['os_increase_rear_rebound_damping_ft_res']
+    ovrstr26_l = lambda: round(ovrstr25 + ovrstr24, 1)
+    ovrstr26 = __set_var(ADJUSTMENTS, 'os_reduce_rear_shock_stiffness_ft_res', ovrstr26_l, 0.0)
+    MAIN_CALC['rear_rebound_fine_tune_results'] = ovrstr26
+
+    ovrstr27 = ADJUSTMENTS['os_reduce_rear_shock_stiffness_input']
+    ovrstr28_l = lambda: ovrstr27 * 2
+    ovrstr28 = __set_var(ADJUSTMENTS, 'front_bump_slider2_input2', ovrstr28_l, 0.0) #pylint: disable=unused-variable
+
+    ovrstr29 = MAIN_CALC['rear_bump_results']
+    ovrstr30 = ADJUSTMENTS['front_bump_slider2_input2']
+    ovrstr31_l = lambda: round((ovrstr29 / 20) * ovrstr30, 1)
+    ovrstr31 = __set_var(ADJUSTMENTS, 'adjust_front_bump_slider2_input2', ovrstr31_l, 0.0)
+
+    ovrstr33_l = lambda: round(num44nw + ovrstr31, 1)
+    ovrstr33 = __set_var(ADJUSTMENTS, 'front_bump_slider2_input2_ft_res', ovrstr33_l, 0.0)
+    MAIN_CALC['rear_bump_fine_tune_results'] = ovrstr33
+
+    ovrstr34 = MAIN_CALC['rear_camber_results']
+    ovrstr35 = ADJUSTMENTS['os_increase_negative_rear_wheel_camber_input2']
+    ovrstr36_l = lambda: round(ovrstr34 + ((ovrstr35 / 10) * -1), 1)
+    ovrstr36 = __set_var(ADJUSTMENTS, 'os_increase_negative_rear_wheel_camber_ft_res', ovrstr36_l, 0.0)
+    MAIN_CALC['rear_camber_fine_tune_results'] = ovrstr36
+
+    ovrstr38 = ADJUSTMENTS['os_increase_rear_toe_in_input2']
+    ovrstr39_l = lambda: round(ovrstr38 * 0.1, 1)
+    ovrstr39 = __set_var(ADJUSTMENTS, 'os_increase_negative_rear_wheel_camber_ft_res', ovrstr39_l, 0.0)
+
+    ovrstr40 = MAIN_CALC['rear_toe_results']
+    ovrstr41_l = lambda: round(ovrstr40 - ovrstr39, 1)
+    ovrstr41 = __set_var(ADJUSTMENTS, 'os_increase_rear_toe_in_ft_res', ovrstr41_l, 0.0)
+    MAIN_CALC['rear_toe_fine_tune_results'] = ovrstr41
+
+    ovrstr42 = MAIN_CALC['front_bump_results']
+    ovrstr43 = ADJUSTMENTS['os_reduce_rear_bump_damping_input2']
+    ovrstr44_l = lambda: round((ovrstr42 / 20) * ovrstr43, 1)
+    ovrstr44 = __set_var(ADJUSTMENTS, 'adjust_os_reduce_rear_bump_damping_input2', ovrstr44_l, 0.0) #pylint: disable=unused-variable
+
+    ovrstr45 = ADJUSTMENTS['front_bump_slider2_input2_ft_res']
+    theotherone = ADJUSTMENTS['adjust_os_reduce_rear_bump_damping_input2']
+    kmn = MAIN_CALC['rear_bump_results'] #pylint: disable=unused-variable
+    ovrstr46_l = lambda: round(ovrstr45 + theotherone, 1)
+    ovrstr46 = __set_var(ADJUSTMENTS, 'os_reduce_rear_bump_damping_ft_res', ovrstr46_l, 0.0)
+    MAIN_CALC['rear_bump_fine_tune_results'] = ovrstr46
+    
 
 if __name__ == "__main__":
     print('Running manual Forza_Tune')
