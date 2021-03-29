@@ -1,8 +1,9 @@
-# dependancies
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
 /node_modules
 /.pnp
 .pnp.js
-venv
 
 # testing
 /coverage
@@ -11,14 +12,7 @@ venv
 /build
 
 # misc
-__pycache__
-hooks/
-info/
-objects/
-refs/
-spreadsheet/
-static/css/
-templates/
+.DS_Store
 .env.local
 .env.development.local
 .env.test.local
@@ -27,4 +21,3 @@ templates/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
