@@ -1,3 +1,10 @@
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+}
+
+$small-width: 1140px;
+$large-width: 1140px;
+
 * {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -11,18 +18,27 @@ body {
 
 div.vehicle-inputs-container {
   display: flex;
-  flex-direction: column;
-  grid-gap: 5px;
+  flex-direction: row;
+
+  @media only screen and (max-width: $small-width) {
+    flex-direction: column;
+  }
+
+  grid-gap: 1px;
   border: 1px solid dimgray;
   background-color: #fc0;
 
   .input-container {
     display: flex;
     flex-direction: row;
+    height: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .input-container-title {
     padding-left: 50px;
+    padding-right: 5px;
     border-bottom: 1px solid dimgray;
     background-color: rgb(187, 203, 235);
     p {
@@ -35,6 +51,8 @@ div.vehicle-inputs-container {
     text-align: right;
     width: 80px;
     font-size: 12px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .input-label:after {
@@ -45,6 +63,8 @@ div.vehicle-inputs-container {
     text-align: left;
     font-size: 12px;
     padding-left: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .input {
@@ -58,4 +78,10 @@ div.vehicle-inputs-container {
     margin-bottom: auto;
     text-align: left;
   }
+}
+
+div.vehicle-outputs-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
