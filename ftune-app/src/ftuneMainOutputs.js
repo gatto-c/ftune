@@ -160,7 +160,7 @@ export default class MainOutputs extends Component {
     ];
 
     return (
-      <div className="vehicle-output-pairs-container">
+      <div className="output-pairs-container">
         {arr.map((el, idx) => (
           <Fragment key={idx}>
             <DataOutputPairComponent

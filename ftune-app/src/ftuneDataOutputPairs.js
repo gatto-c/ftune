@@ -21,8 +21,8 @@ export default function DataOutputPairComponent({
   showSecondPair,
 }) {
   return (
-    <div>
-      <p>{title}</p>
+    <div className="output-group">
+      <div className="output-pairs-title">{title}</div>
       <div className="two-pairs-container">
         <div className="output-pair-container">
           <div className="output-pair-main">
@@ -34,7 +34,7 @@ export default function DataOutputPairComponent({
           </div>
           <div className="output-pair-main">
             <p className="output-pair-label">after ft</p>
-            <p className="output-pair-text" id={id2}>
+            <p className="output-pair-text-ft" id={id2}>
               {value2}
             </p>
             <p className="output-metric">{metricLabel2}</p>
@@ -51,7 +51,7 @@ export default function DataOutputPairComponent({
             </div>
             <div className="output-pair-main">
               <p className="output-pair-label">after ft</p>
-              <p className="output-pair-text" id={id4}>
+              <p className="output-pair-text-ft" id={id4}>
                 {value4}
               </p>
               <p className="output-metric">{metricLabel4}</p>

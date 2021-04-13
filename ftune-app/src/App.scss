@@ -5,6 +5,11 @@
 $small-width: 1140px;
 $large-width: 1140px;
 
+$header-bg-color: #bbcbeb;
+$header-color: darkslategray;
+$section-border: 1px solid dimgray;
+$inputs-background-color: #fc0;
+
 * {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -24,15 +29,15 @@ div.main-calcs {
 div.vehicle-inputs-container {
   display: flex;
   flex-direction: column;
-  // height: fit-content;
+  height: fit-content;
 
   // @media only screen and (max-width: $small-width) {
   //   flex-direction: column;
   // }
 
-  grid-gap: 1px;
-  border: 1px solid dimgray;
-  background-color: #fc0;
+  grid-gap: 2px;
+  border: $section-border;
+  background-color: $inputs-background-color;
   padding-bottom: 5px;
 
   .input-container {
@@ -47,8 +52,9 @@ div.vehicle-inputs-container {
   .input-container-title {
     padding-left: 50px;
     padding-right: 5px;
-    border-bottom: 1px solid dimgray;
-    background-color: rgb(187, 203, 235);
+    border-bottom: $section-border;
+    background-color: $header-bg-color;
+    color: $header-color;
     p {
       text-align: left;
       font-weight: bold;
@@ -76,7 +82,7 @@ div.vehicle-inputs-container {
   }
 
   .input {
-    border: 1px solid dimgray;
+    border: $section-border;
     margin-left: 5px;
     width: 60px;
     height: 18px;
@@ -88,48 +94,74 @@ div.vehicle-inputs-container {
   }
 }
 
-div.two-pairs-container {
-  display: flex;
-  flex-direction: row;
-}
+div.output-group {
+  margin-left: 15px;
+  margin-bottom: 10px;
 
-div.output-pair-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 25%;
-  box-sizing: border-box;
+  .output-pairs-title {
+    border: $section-border;
+    text-align: center;
+    background-color: $header-bg-color;
+    margin-bottom: 3px;
+    font-weight: bold;
+    color: $header-color;
+  }
 
-  .output-pair-main {
+  .two-pairs-container {
     display: flex;
     flex-direction: row;
-  }
 
-  .output-pair-label {
-    text-align: right;
-    width: 80px;
-    font-size: 12px;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
+    .output-pair-container {
+      display: flex;
+      flex-direction: column;
 
-  .output-pair-label:after {
-    content: ":";
-  }
+      .output-pair-main {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 3px;
+      }
 
-  .output-pair-text {
-    text-align: right;
-    width: 80px;
-    font-size: 12px;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
+      .output-pair-label {
+        text-align: right;
+        width: 60px;
+        font-size: 12px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 3px;
+      }
 
-  .output-metric {
-    text-align: left;
-    font-size: 12px;
-    padding-left: 5px;
-    margin-top: auto;
-    margin-bottom: auto;
+      .output-pair-label:after {
+        content: ":";
+      }
+
+      .output-pair-text {
+        width: 40px;
+        font-size: 12px;
+        margin-top: auto;
+        margin-bottom: auto;
+        border: $section-border;
+        text-align: center;
+        background-color: ivory;
+      }
+
+      .output-pair-text-ft {
+        width: 40px;
+        font-size: 12px;
+        margin-top: auto;
+        margin-bottom: auto;
+        border: $section-border;
+        text-align: center;
+        background-color: darkseagreen;
+        color: mintcream;
+      }
+
+      .output-metric {
+        text-align: left;
+        font-size: 12px;
+        padding-left: 5px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
   }
 }
