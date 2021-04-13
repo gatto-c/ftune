@@ -23,6 +23,8 @@ templates/
 .env.development.local
 .env.test.local
 .env.production.local
+/api
+api
 
 npm-debug.log*
 yarn-debug.log*

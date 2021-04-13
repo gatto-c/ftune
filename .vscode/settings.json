@@ -17,5 +17,6 @@
     "editor.codeActionsOnSave": { "source.fixAll.eslint": true }, 
     "eslint.alwaysShowStatus": true, 
     "files.autoSave": "onFocusChange",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "git.ignoreLimitWarning": true
 }

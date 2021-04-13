@@ -6,8 +6,10 @@ export default function MainCalcs() {
   return (
     <div>
       <p>Main Calcs</p>
-      <VehicleInfo />
-      <MainOutputs />
+      <div className="main-calcs">
+        <VehicleInfo />
+        <MainOutputs />
+      </div>
     </div>
   );
 }

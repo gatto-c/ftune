@@ -13,20 +13,27 @@ $large-width: 1140px;
 
 body {
   background-color: #9cf;
-  margin: 0 auto;
+  margin: 10 auto;
+}
+
+div.main-calcs {
+  display: flex;
+  flex-direction: row;
 }
 
 div.vehicle-inputs-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  // height: fit-content;
 
-  @media only screen and (max-width: $small-width) {
-    flex-direction: column;
-  }
+  // @media only screen and (max-width: $small-width) {
+  //   flex-direction: column;
+  // }
 
   grid-gap: 1px;
   border: 1px solid dimgray;
   background-color: #fc0;
+  padding-bottom: 5px;
 
   .input-container {
     display: flex;
@@ -34,6 +41,7 @@ div.vehicle-inputs-container {
     height: 25px;
     margin-top: auto;
     margin-bottom: auto;
+    padding-right: 5px;
   }
 
   .input-container-title {
@@ -80,8 +88,48 @@ div.vehicle-inputs-container {
   }
 }
 
-div.vehicle-outputs-container {
+div.two-pairs-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+div.output-pair-container {
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  width: 25%;
+  box-sizing: border-box;
+
+  .output-pair-main {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .output-pair-label {
+    text-align: right;
+    width: 80px;
+    font-size: 12px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .output-pair-label:after {
+    content: ":";
+  }
+
+  .output-pair-text {
+    text-align: right;
+    width: 80px;
+    font-size: 12px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .output-metric {
+    text-align: left;
+    font-size: 12px;
+    padding-left: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }

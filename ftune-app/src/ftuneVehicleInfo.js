@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import DataIOComponent from "./ftuneDataIO.js";
+import DataIOComponent from "./ftuneDataInput.js";
 
 export default class VehicleInfo extends Component {
   render() {
