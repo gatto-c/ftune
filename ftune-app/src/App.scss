@@ -165,3 +165,20 @@ div.output-group {
     }
   }
 }
+
+div.main-calc-sliders-container {
+  width: 10%;
+  margin-left: 15px;
+
+  .slider-container {
+    display: flex;
+    flex-direction: row;
+
+    .slider {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}
