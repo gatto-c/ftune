@@ -167,12 +167,20 @@ div.output-group {
 }
 
 div.main-calc-sliders-container {
-  width: 10%;
+  width: 15%;
   margin-left: 15px;
 
   .slider-container {
     display: flex;
     flex-direction: row;
+
+    .label-left {
+      margin-right: 5px;
+    }
+
+    .label-right {
+      margin-left: 5px;
+    }
 
     .slider {
       margin-top: auto;
@@ -180,5 +188,27 @@ div.main-calc-sliders-container {
       margin-left: 5px;
       margin-right: 5px;
     }
+  }
+
+  .MuiButton-root {
+    min-width: unset;
+    width: 20px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: unset;
+  }
+
+  .calc-adj-value {
+    margin-left: 8px;
+    margin-right: 8px;
+    text-align: center;
+    min-width: 30px;
+  }
+
+  .front-rear-adj {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
