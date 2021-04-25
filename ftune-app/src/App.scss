@@ -123,7 +123,7 @@ div.output-group {
 
       .output-pair-label {
         text-align: right;
-        width: 60px;
+        width: 40px;
         font-size: 12px;
         margin-top: auto;
         margin-bottom: auto;
@@ -166,27 +166,69 @@ div.output-group {
   }
 }
 
+div.main-calc-slider-group {
+  margin-bottom: 12px;
+  border: 1px solid black;
+  background-color: mintcream;
+}
+
 div.main-calc-sliders-container {
-  width: 15%;
+  width: 13%;
   margin-left: 15px;
+
+  .group-title {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 0px;
+
+    .main-value {
+      color: darkorchid;
+      margin-left: 5px;
+    }
+  }
+
+  .bias-adj-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3px;
+  }
 
   .slider-container {
     display: flex;
     flex-direction: row;
 
+    .label-button-left {
+      display: flex;
+      flex-direction: row;
+      margin-right: 3px;
+      width: 35%;
+      justify-content: flex-end;
+    }
+
+    .label-button-right {
+      display: flex;
+      flex-direction: row;
+      margin-left: 3px;
+      width: 35%;
+      justify-content: flex-start;
+    }
+
     .label-left {
-      margin-right: 5px;
+      margin-right: 3px;
     }
 
     .label-right {
-      margin-left: 5px;
+      margin-left: 3px;
     }
 
     .slider {
       margin-top: auto;
       margin-bottom: auto;
-      margin-left: 5px;
-      margin-right: 5px;
+      width: 30%;
     }
   }
 
@@ -200,15 +242,20 @@ div.main-calc-sliders-container {
   }
 
   .calc-adj-value {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     text-align: center;
-    min-width: 30px;
+    min-width: 45px;
+    color: darkorchid;
   }
 
   .front-rear-adj {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    text-align: center;
+    margin-bottom: 6px;
   }
 }

@@ -5,7 +5,7 @@ export default class MainOutputs extends Component {
   render() {
     var arr = [
       {
-        title: "Camber",
+        title: "Camber (degrees)",
         id1: "output-front-camber",
         label1: "Front",
         value1: "2.0",
@@ -25,7 +25,7 @@ export default class MainOutputs extends Component {
         metricLabel4: "",
       },
       {
-        title: "Toe",
+        title: "Toe (degrees)",
         id1: "output-front-toe",
         label1: "Front",
         value1: "2.0",
@@ -45,7 +45,7 @@ export default class MainOutputs extends Component {
         metricLabel4: "",
       },
       {
-        title: "Anti-Roll Bar",
+        title: "Anti-Roll Bar (lbs)",
         id1: "output-front-arb",
         label1: "Front",
         value1: "2.0",
@@ -65,7 +65,7 @@ export default class MainOutputs extends Component {
         metricLabel4: "",
       },
       {
-        title: "Springs",
+        title: "Springs (lbs / inch)",
         id1: "output-front-springs",
         label1: "Front",
         value1: "2.0",
@@ -125,7 +125,7 @@ export default class MainOutputs extends Component {
         metricLabel4: "",
       },
       {
-        title: "Aero",
+        title: "Aero (lbs)",
         id1: "output-front-aero",
         label1: "Front",
         value1: "2.0",
@@ -145,7 +145,7 @@ export default class MainOutputs extends Component {
         metricLabel4: "",
       },
       {
-        title: "Caster",
+        title: "Caster (degrees)",
         id1: "output-front-caster",
         label1: "Front",
         value1: "2.0",

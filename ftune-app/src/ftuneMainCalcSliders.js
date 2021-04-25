@@ -1,142 +1,72 @@
 import React, { useState } from "react";
-import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import Button from "@material-ui/core/Button";
+import MainCalcSliderGroup from "./ftuneMainCalcSliderGroup.js";
 
 export default function MainCalcSliders() {
-  // eslint-disable-next-line no-unused-vars
   const [springStiffness, setSpringStiffness] = useState(0);
   const [springStiffnessFBias, setSpringStiffnessFBias] = useState(0);
   const [springStiffnessRBias, setSpringStiffnessRBias] = useState(0);
-
-  const updateSpringStiffness = (value) => {
-    setSpringStiffness(value);
-    // const springValue = Math.round(((value - 50) / (100 / 2)) * 300);
-  };
-
-  const softerSprings = () => {
-    if (springStiffness > -300) {
-      setSpringStiffness(springStiffness - 10);
-    }
-  };
-
-  const stifferSprings = () => {
-    if (springStiffness < 300) {
-      setSpringStiffness(springStiffness + 10);
-    }
-  };
-
-  const softerSpringFrontBias = () => {
-    if (springStiffnessFBias > -300) {
-      setSpringStiffnessFBias(springStiffnessFBias - 10);
-    }
-  };
-
-  const stifferSpringFrontBias = () => {
-    if (springStiffnessFBias < 300) {
-      setSpringStiffnessFBias(springStiffnessFBias + 10);
-    }
-  };
-
-  const softerSpringRearBias = () => {
-    if (springStiffnessRBias > -300) {
-      setSpringStiffnessRBias(springStiffnessRBias - 10);
-    }
-  };
-
-  const stifferSpringRearBias = () => {
-    if (springStiffnessRBias < 300) {
-      setSpringStiffnessRBias(springStiffnessRBias + 10);
-    }
-  };
-
-  const calcSlider = function (title, value, updateFtn, decrFtn, incrFtn) {
-    return (
-      <div>
-        {title}: {value}
-        <div className="slider-container">
-          <p className="label-left">Softer</p>
-          <Button
-            variant="contained"
-            className="slider-button"
-            onClick={decrFtn}
-          >
-            -
-          </Button>
-          <Slider
-            className="slider"
-            onChange={updateFtn}
-            startPoint={0}
-            min={-300}
-            max={300}
-            step={10}
-            value={value}
-          />
-          <Button
-            variant="contained"
-            className="slider-button"
-            onClick={incrFtn}
-          >
-            +
-          </Button>
-          <p className="label-right">Stiffer</p>
-        </div>
-      </div>
-    );
-  };
-
-  const calcAdjuster = function (title, value, decrFtn, incrFtn) {
-    return (
-      <div>
-        {title}
-        <div className="slider-container">
-          <Button
-            variant="contained"
-            className="slider-button"
-            onClick={decrFtn}
-          >
-            -
-          </Button>
-          <p className="calc-adj-value">{value}</p>
-          <Button
-            variant="contained"
-            className="slider-button"
-            onClick={incrFtn}
-          >
-            +
-          </Button>
-        </div>
-      </div>
-    );
-  };
+  const [damperStiffness, setDamperStiffness] = useState(0);
+  const [damperStiffnessFBias, setDamperStiffnessFBias] = useState(0);
+  const [damperStiffnessRBias, setDamperStiffnessRBias] = useState(0);
+  const [dampingRatio, setDampingRatio] = useState(0);
+  const [overallBalance, setOverallBalance] = useState(0);
+  const [antiRollBar, setAntiRollBar] = useState(0);
 
   return (
     <div className="main-calc-sliders-container">
-      {calcSlider(
-        "Spring Stiffness",
-        springStiffness,
-        updateSpringStiffness,
-        softerSprings,
-        stifferSprings
-      )}
-      <div className="front-rear-adj">
-        {calcAdjuster(
-          "Front-Bias",
-          springStiffnessFBias,
-          softerSpringFrontBias,
-          stifferSpringFrontBias
-        )}
-        {calcAdjuster(
-          "Rear-Bias",
-          springStiffnessRBias,
-          softerSpringRearBias,
-          stifferSpringRearBias
-        )}
-      </div>
+      <MainCalcSliderGroup
+        title="Spring Stiffness"
+        mainValue={springStiffness}
+        mainValueSetter={setSpringStiffness}
+        mainValueStep={10}
+        mainLabelLeft="Softer"
+        mainLabelRight="Stiffer"
+        fbiasValue={springStiffnessFBias}
+        fbiasValueSetter={setSpringStiffnessFBias}
+        rbiasValue={springStiffnessRBias}
+        rbiasValueSetter={setSpringStiffnessRBias}
+      />
 
-      <div>Damper Stiffness</div>
-      <div>Overall Balance</div>
-      <div>Anti-Roll Bar</div>
+      <MainCalcSliderGroup
+        title="Damper Stiffness"
+        mainValue={damperStiffness}
+        mainValueSetter={setDamperStiffness}
+        mainValueStep={10}
+        mainLabelLeft="Softer"
+        mainLabelRight="Stiffer"
+        fbiasValue={damperStiffnessFBias}
+        fbiasValueSetter={setDamperStiffnessFBias}
+        rbiasValue={damperStiffnessRBias}
+        rbiasValueSetter={setDamperStiffnessRBias}
+      />
+
+      <MainCalcSliderGroup
+        title="Damping"
+        mainValue={dampingRatio}
+        mainValueSetter={setDampingRatio}
+        mainValueStep={1}
+        mainLabelLeft="Bumpy"
+        mainLabelRight="Smooth"
+      />
+
+      <MainCalcSliderGroup
+        title="Overall Balance"
+        mainValue={overallBalance}
+        mainValueSetter={setOverallBalance}
+        mainValueStep={1}
+        mainLabelLeft="Understeer"
+        mainLabelRight="Oversteer"
+      />
+
+      <MainCalcSliderGroup
+        title="Anti-Roll Bar"
+        mainValue={antiRollBar}
+        mainValueSetter={setAntiRollBar}
+        mainValueStep={1}
+        mainLabelLeft="Understeer"
+        mainLabelRight="Oversteer"
+      />
     </div>
   );
 }
