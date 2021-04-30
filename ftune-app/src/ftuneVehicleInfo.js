@@ -16,6 +16,7 @@ export default function VehicleInfo() {
       type: "number",
       inputValue: state.weight,
       metricLabel: "Lbs",
+      visible: true,
       handleChange: (event) =>
         dispatch({ type: "weight", payload: event.target.value }),
     },
@@ -25,17 +26,29 @@ export default function VehicleInfo() {
       type: "number",
       inputValue: state.front_percent,
       metricLabel: "%",
+      visible: true,
       handleChange: (event) =>
         dispatch({ type: "front_percent", payload: event.target.value }),
     },
     {
-      id: "input_arb_front_rear",
+      id: "input_arb_front",
       label: "Front ARB",
       type: "number",
       inputValue: state.front_arb,
       metricLabel: "",
+      visible: state.front_percent <= 50.0 ? true : false,
       handleChange: (event) =>
         dispatch({ type: "front_arb", payload: event.target.value }),
+    },
+    {
+      id: "input_arb_rear",
+      label: "Rear ARB",
+      type: "number",
+      inputValue: state.rear_arb,
+      metricLabel: "",
+      visible: state.front_percent > 50.0 ? true : false,
+      handleChange: (event) =>
+        dispatch({ type: "rear_arb", payload: event.target.value }),
     },
     {
       id: "input_front_aero",
@@ -43,6 +56,7 @@ export default function VehicleInfo() {
       type: "number",
       inputValue: state.front_aero,
       metricLabel: "Lbs",
+      visible: true,
       handleChange: (event) =>
         dispatch({ type: "front_aero", payload: event.target.value }),
     },
@@ -52,6 +66,7 @@ export default function VehicleInfo() {
       type: "number",
       inputValue: state.power_hp,
       metricLabel: "HP",
+      visible: true,
       handleChange: (event) =>
         dispatch({ type: "power_hp", payload: event.target.value }),
     },
@@ -62,10 +77,13 @@ export default function VehicleInfo() {
       inputValue: state.hp_per_ton,
       metricLabel: "",
       readOnly: true,
+      visible: true,
       handleChange: (event) =>
         dispatch({ type: "hp_per_ton", payload: event.target.value }),
     },
   ];
+
+  console.log(">>>>>here");
 
   return (
     <div className="vehicle-inputs-container">
@@ -81,6 +99,7 @@ export default function VehicleInfo() {
             type={el.type}
             inputValue={el.inputValue}
             metricLabel={el.metricLabel}
+            visible={el.visible}
             readOnly={el.readOnly}
             handleChange={el.handleChange}
           />

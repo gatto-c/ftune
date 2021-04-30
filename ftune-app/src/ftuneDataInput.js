@@ -1,6 +1,8 @@
+/* eslint-disable */
 /* eslint-disable no-constant-condition */
 import React from "react";
 import PropTypes from "prop-types";
+import Input from "@material-ui/core/Input";
 
 export default function DataIOComponent({
   id,
@@ -8,23 +10,39 @@ export default function DataIOComponent({
   type,
   inputValue,
   metricLabel,
+  visible,
   readOnly,
   handleChange,
 }) {
-  return (
-    <div className="input-container">
-      <p className="input-label">{label}</p>
-      <input
-        type={type}
-        className="input"
-        id={id}
-        readOnly={readOnly}
-        value={inputValue}
-        onChange={handleChange}
-      />
-      <p className="input-metric">{metricLabel}</p>
-    </div>
-  );
+  console.log(">>>>>visible:", visible);
+
+  if (visible) {
+    return (
+      <div className="input-container">
+        <p className="input-label">{label}</p>
+        <Input
+          id={id}
+          className="input"
+          type={type}
+          value={inputValue}
+          readOnly={readOnly}
+          inputProps={{ inputmode: "numeric", pattern: "[0-9]*" }}
+          onChange={handleChange}
+        />
+        {/* <input
+          type={type}
+          className="input"
+          id={id}
+          readOnly={readOnly}
+          value={inputValue}
+          onChange={handleChange}
+        />         */}
+        <p className="input-metric">{metricLabel}</p>
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
 
 DataIOComponent.defaultProps = {
@@ -37,6 +55,8 @@ DataIOComponent.propTypes = {
   type: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
   metricLabel: PropTypes.string.isRequired,
+  visible: PropTypes.bool,
   readOnly: PropTypes.bool,
   handleChange: PropTypes.func.isRequired,
 };
+/* eslint-enable */

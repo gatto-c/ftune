@@ -9,13 +9,15 @@ export const CarDataContext = createContext();
 export default function MainCalcs() {
   const dataCarInputs = {
     weight: "3800",
-    front_percent: "55",
-    front_arb: "20",
-    rear_arb: "20",
-    front_aero: "80",
-    power_hp: "330",
+    front_percent: "50",
+    front_arb: "17",
+    rear_arb: "17",
+    front_aero: "0",
+    power_hp: "290",
     hp_per_ton: "0",
   };
+
+  // const outputs = {};
 
   const carInputsReducer = (state, { type, payload }) => {
     console.log(">>cir, state:", state, ", type:", type, ", payload:", payload);
@@ -40,7 +42,6 @@ export default function MainCalcs() {
           <VehicleInfo />
           <MainOutputs />
           <MainCalcSliders />
-          {/* <ReducerForm /> */}
         </CarDataContext.Provider>
       </div>
     </div>

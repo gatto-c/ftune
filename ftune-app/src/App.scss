@@ -81,16 +81,22 @@ div.vehicle-inputs-container {
     margin-bottom: auto;
   }
 
+  .MuiInputBase-input {
+    padding: 4px 0px 0px 3px;
+  }
+
   .input {
     border: $section-border;
     margin-left: 5px;
     width: 60px;
-    height: 18px;
+    height: 23px;
     font-size: 12px;
     display: block;
     margin-top: auto;
     margin-bottom: auto;
     text-align: left;
+    padding-right: 4px;
+    background-color: ghostwhite;
   }
 }
 
