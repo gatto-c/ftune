@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from "react";
+import { dataCarInputs, dataCarOutputs } from "./ftuneDataContext.js";
 import VehicleInfo from "./ftuneVehicleInfo.js";
 import MainOutputs from "./ftuneMainOutputs.js";
 import MainCalcSliders from "./ftuneMainCalcSliders.js";
@@ -7,25 +8,13 @@ import MainCalcSliders from "./ftuneMainCalcSliders.js";
 export const CarDataContext = createContext();
 
 export default function MainCalcs() {
-  const dataCarInputs = {
-    weight: "3800",
-    front_percent: "50",
-    front_arb: "17",
-    rear_arb: "17",
-    front_aero: "0",
-    power_hp: "290",
-    hp_per_ton: "0",
-  };
-
-  // const outputs = {};
-
-  const carInputsReducer = (state, { type, payload }) => {
+  const carIOReducer = (state, { type, payload }) => {
     console.log(">>cir, state:", state, ", type:", type, ", payload:", payload);
     return { ...state, [type]: payload };
   };
 
   const [carInputsState, carInputsDispatch] = useReducer(
-    carInputsReducer,
+    carIOReducer,
     dataCarInputs
   );
 
@@ -34,11 +23,26 @@ export default function MainCalcs() {
     dispatch: carInputsDispatch,
   };
 
+  const [carOutputsState, carOutputsDispatch] = useReducer(
+    carIOReducer,
+    dataCarOutputs
+  );
+
+  const carOutputs = {
+    state: carOutputsState,
+    dispatch: carOutputsDispatch,
+  };
+
+  const mainData = {
+    carInputs: carInputs,
+    carOutputs: carOutputs,
+  };
+
   return (
     <div>
       <p>Main Calcs</p>
       <div className="main-calcs">
-        <CarDataContext.Provider value={carInputs}>
+        <CarDataContext.Provider value={mainData}>
           <VehicleInfo />
           <MainOutputs />
           <MainCalcSliders />

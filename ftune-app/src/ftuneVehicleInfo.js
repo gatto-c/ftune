@@ -6,8 +6,8 @@ import { CarDataContext } from "./ftuneMainCalc.js";
 
 export default function VehicleInfo() {
   const vehicleInputsDataContext = React.useContext(CarDataContext);
-  const state = vehicleInputsDataContext.state;
-  const dispatch = vehicleInputsDataContext.dispatch;
+  const state = vehicleInputsDataContext.carInputs.state;
+  const dispatch = vehicleInputsDataContext.carInputs.dispatch;
 
   var arr = [
     {
@@ -82,8 +82,6 @@ export default function VehicleInfo() {
         dispatch({ type: "hp_per_ton", payload: event.target.value }),
     },
   ];
-
-  console.log(">>>>>here");
 
   return (
     <div className="vehicle-inputs-container">
