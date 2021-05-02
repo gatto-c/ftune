@@ -9,7 +9,7 @@ export default function ReducerForm() {
   };
 
   const formReducer = (state, { type, payload }) => {
-    console.log(">>>>>state:", state, ", type:", type, ", payload:", payload);
+    // console.log(">>>>>state:", state, ", type:", type, ", payload:", payload);
     return { ...state, [type]: payload };
   };
 

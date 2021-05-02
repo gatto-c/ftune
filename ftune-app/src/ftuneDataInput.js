@@ -14,8 +14,6 @@ export default function DataIOComponent({
   readOnly,
   handleChange,
 }) {
-  console.log(">>>>>visible:", visible);
-
   if (visible) {
     return (
       <div className="input-container">
@@ -26,17 +24,9 @@ export default function DataIOComponent({
           type={type}
           value={inputValue}
           readOnly={readOnly}
-          inputProps={{ inputmode: "numeric", pattern: "[0-9]*" }}
+          inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
           onChange={handleChange}
         />
-        {/* <input
-          type={type}
-          className="input"
-          id={id}
-          readOnly={readOnly}
-          value={inputValue}
-          onChange={handleChange}
-        />         */}
         <p className="input-metric">{metricLabel}</p>
       </div>
     );
